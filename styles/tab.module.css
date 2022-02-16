@@ -1,4 +1,6 @@
 .navBar {
+  display: flex;
+  flex-wrap: wrap;
   background-color: #001e3c;
   padding: 30px 3px;
   text-align: center;
@@ -12,7 +14,6 @@
   border-radius: 5px;
   text-decoration: none;
   background-color: #020e1a;
-  border: ipx solid #ccc;
 }
 .navItems:hover {
   background-color: #0a1929;
