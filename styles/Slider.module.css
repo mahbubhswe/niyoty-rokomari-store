@@ -1,0 +1,49 @@
+.textBlock {
+  position: absolute;
+  bottom: 40%;
+  right: 66%;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.container {
+  font-size: 25px;
+  font-weight: 800;
+  color: black;
+  margin-bottom: 10px;
+}
+.btn {
+  background-color: crimson;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 28px;
+  font-weight: 800;
+}
+@media only screen and (max-width: 882px) {
+  .container {
+    font-size: 21px;
+    font-weight: 700;
+  }
+  .btn {
+    font-size: 23px;
+    font-weight: 700;
+  }
+}
+@media only screen and (max-width: 762px) {
+  .textBlock {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: grid;
+    place-content: center;
+    background-color: burlywood;
+  }
+  .btn {
+    width: 50%;
+    margin: auto;
+  }
+}

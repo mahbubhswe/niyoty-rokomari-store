@@ -1,0 +1,21 @@
+.navBar {
+  background-color: #001e3c;
+  padding: 30px 3px;
+  text-align: center;
+}
+.navItems {
+  margin: 3px;
+  font-size: 19px;
+  font-weight: 600;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #020e1a;
+  border: ipx solid #ccc;
+}
+.navItems:hover {
+  background-color: #0a1929;
+
+  color: wheat;
+}

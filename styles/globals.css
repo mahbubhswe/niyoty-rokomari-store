@@ -1,0 +1,25 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
+@import url("https://pro.fontawesome.com/releases/v5.10.0/css/all.css");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+.container {
+  background-color: #fcfcfa;
+  padding: 30px;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 50%);
+}
