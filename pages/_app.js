@@ -15,7 +15,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
  
       <StoreProvider>
-        {" "}
         <Component {...pageProps} />
       </StoreProvider>
 
