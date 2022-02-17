@@ -47,3 +47,29 @@
     margin: auto;
   }
 }
+/* 
+@media only screen and (max-width: 467px) {
+  .container {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .btn {
+    padding: 8px 15px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+} */
+
+@media only screen and (max-width: 444px) {
+  .container {
+    font-size: 14px;
+    font-weight: 200;
+  }
+  .btn {
+    width: 80%;
+    margin: auto;
+    padding: 3px 7px;
+    font-size: 16px;
+    font-weight: 300;
+  }
+}
