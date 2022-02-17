@@ -1,56 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { db } from "../../../firebase";
-
-import { collection, getDocs, query, where } from "firebase/firestore";
-
 import DashboardLayout from "../../../components/DashboardLayout";
+import React, { useEffect, useState } from "react";
+
+import { db } from "../../../firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
 export default function Index() {
-  // const [products, setProducts] = useState([]);
-  const customers = [];
+  const [products, setProducts] = useState([]);
   const productsCollectionRef = collection(db, "selling");
+
   useEffect(() => {
     const getProducts = async () => {
       const q = query(productsCollectionRef, where("type", "==", "due"));
       const data = await getDocs(q);
-      // setProducts(data.docs.map((doc) => ({ ...doc.data() })));
-      data.docs.forEach((element) => {
-        console.log("customers");
-        console.log(customers);
-
-        customers.push({ ...element.data(), id: element.id });
-      });
+      setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
+
     getProducts();
   }, []);
-
   return (
     <DashboardLayout>
-      <h1 className="text-center">বাকির খাতা</h1>
       <div className="container">
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">নাম</th>
-              <th scope="col">নম্বর</th>
-              <th scope="col">পণ্য</th>
-              <th scope="col">বাকি</th>
-              <th scope="col">তারিখ</th>
-            </tr>
-          </thead>
-          <tbody>
-            {customers
-              ? customers.map((customer) => (
-                  <tr key={customer.id}>
-                    <td>{customer.name}</td>
-                    <td>{customer.number}</td>
-                    <td>{customer.customer}</td>
-                    <td>{customer.price}</td>
-                    <td>{customer.date}</td>
-                  </tr>
-                ))
-              : null}
-          </tbody>
-        </table>
+        <h1>বাকির খাতা</h1>
+        {products
+          ? products.map((x) => (
+              <div key={x.id}>
+                <div className="alert alert-success text-black">
+                  <strong>
+                    {" "}
+                    {"নাম: " +
+                      x.name +
+                      "     নম্বর: " +
+                      x.number +
+                      "     পণ্য: " +
+                      x.product +
+                      "     বাকি: " +
+                      x.price}
+                  </strong>
+                </div>
+              </div>
+            ))
+          : null}
       </div>
     </DashboardLayout>
   );
