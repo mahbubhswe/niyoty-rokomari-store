@@ -1,6 +1,7 @@
 .navBar {
   display: flex;
   flex-wrap: wrap;
+  place-content:center;
   background-color: #001e3c;
   padding: 30px 3px;
   text-align: center;
