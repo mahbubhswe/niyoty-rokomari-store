@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/tab.module.css";
+import TodayReport from "./TodayReport";
 export default function Tab() {
   const router = useRouter();
 
@@ -25,7 +26,7 @@ export default function Tab() {
             <a className={styles.navItems}>বাকির খাতা</a>
           </Link>
           <Link href="/dashboard/report" passHref>
-            <a className={styles.navItems}>আজকের বেচা-কেনা</a>
+            <a className={styles.navItems}>সকল বিক্রির হিসাব</a>
           </Link>
           <Link href="/dashboard/check-order" passHref>
             <a className={styles.navItems}>অর্ডার দেখুন</a>
@@ -43,6 +44,7 @@ export default function Tab() {
           <button onClick={logout} className="btn btn-danger">
             Logout
           </button>
+          <TodayReport></TodayReport>
         </nav>
       </header>
     </>
