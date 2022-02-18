@@ -3,12 +3,19 @@ import React, { useContext, useEffect, useState } from "react";
 import NotFound from "../../../components/NotFound";
 import styles from "../../../styles/store.module.css";
 import { db } from "../../../firebase";
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import {
+  collection,
+  updateDoc,
+  getDocs,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import DashboardLayout from "../../../components/DashboardLayout";
-import Link from "next/link";
-import { Store } from "../../../utils/Store";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+
   const [products, setProducts] = useState([]);
   const productsCollectionRef = collection(db, "products");
   useEffect(() => {
@@ -25,8 +32,25 @@ export default function Home() {
     if (confirm("ডাটাবেজ থেকে পণ্যটি মুঝে যাবে?") == true) {
       await deleteDoc(userDoc);
     }
+    router.reload(window.location.pathname);
   };
+  const updateProduct = async (item) => {
+    let a, b, c;
+    a = prompt("Enter new price:");
+    b = prompt("Unit based on price:");
+    c = prompt("Stock:");
 
+    const userDoc = doc(db, "products", item.id);
+    const newFields = {
+      price: a ? Number(a) : item.price,
+      unit: b ? b : item.unit,
+      qty: c ? Number(c) : item.qty,
+    };
+    if (confirm("Do you want to update?") == true) {
+      await updateDoc(userDoc, newFields);
+      router.reload(window.location.pathname);
+    }
+  };
   return (
     <DashboardLayout>
       <div className={styles.container}>
@@ -59,9 +83,16 @@ export default function Home() {
                 </div>
 
                 <button
+                  onClick={() => updateProduct(item)}
+                  type="button"
+                  className="btn btn-primary mr-5"
+                >
+                  Update
+                </button>
+                <button
                   onClick={() => deleteProduct(item.id)}
                   type="button"
-                  className={styles.btn}
+                  className="btn btn-danger"
                 >
                   Delete
                 </button>
