@@ -2,7 +2,14 @@ import DashboardLayout from "../../../components/DashboardLayout";
 import React, { useEffect, useState } from "react";
 
 import { db } from "../../../firebase";
-import { collection, query, where, updateDoc,doc } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 import Screen from "../screen";
 export default function Index() {
   const [products, setProducts] = useState([]);
