@@ -17,7 +17,7 @@ export default function Index() {
   }, []);
   return (
     <DashboardLayout>
-      <h1 className="text-center">আজকের মোট হিসাব</h1>
+      <h1 className="text-center">সকল বিক্রির হিসাব</h1>
       <div className="container">
         <h3>
           Total: {sellingReport.reduce((a, c) => a + Number(c.price), 0)} tk
