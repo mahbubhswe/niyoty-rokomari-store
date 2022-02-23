@@ -37,6 +37,9 @@ export default function Tab() {
           <Link href="/dashboard/khoroc" passHref>
             <a className={styles.navItems}>দৈনিক খরচ</a>
           </Link>
+          <Link href="/dashboard/emergency-products" passHref>
+            <a className={styles.navItems}>জরুরী পন্য</a>
+          </Link>
           <Link href="/" passHref>
             <a className={styles.navItems}>হোম পেইজে যান</a>
           </Link>
